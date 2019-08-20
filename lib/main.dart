@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool show = true;
 
   void _incrementCounter() {
     setState(() {
@@ -43,7 +44,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Flexible(child : RevealCircle())
+            Center(
+              child: RaisedButton(
+                child: Text("reveal"),
+                onPressed: () {
+                  setState(() {
+                    show = show ? false : true;
+                  });
+                },
+              ),
+            ),
+            Flexible(child: RevealCircle(show))
           ],
         ),
       ),
